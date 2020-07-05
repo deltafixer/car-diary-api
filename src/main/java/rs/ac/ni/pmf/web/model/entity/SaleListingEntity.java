@@ -28,7 +28,7 @@ public class SaleListingEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	private VehicleEntity vehicle;

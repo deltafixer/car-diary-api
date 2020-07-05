@@ -30,6 +30,7 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.Model;
 @AllArgsConstructor
 public class VehicleEntity {
 
+//	COMMENT: suppose that we use 'Integer' only because of 'CrudRepository'?
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
