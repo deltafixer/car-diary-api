@@ -43,5 +43,5 @@ public class VehicleAccidentEntity {
 	private Date dateOfAccident;
 
 	@Column(name = "damage_price_evaluation")
-	private float damagePriceEvaluation;
+	private Float damagePriceEvaluation;
 }

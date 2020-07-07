@@ -15,5 +15,5 @@ import lombok.NoArgsConstructor;
 public class VehicleAccidentDTO {
 	private Integer id;
 	private Date dateOfAccident;
-	private float damagePriceEvaluation;
+	private Float damagePriceEvaluation;
 }

@@ -37,7 +37,7 @@ public class VehicleSpecificationsEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	private float price;
+	private Float price;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "vahicle_condition")
@@ -53,17 +53,17 @@ public class VehicleSpecificationsEntity {
 	@Column(name = "drive_type")
 	private DriveType driveType;
 
-	private float kilometrage;
+	private Float kilometrage;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "fuel_type")
 	private FuelType fuelType;
 
 	@Column(name = "engine_volume")
-	private int engineVolume;
+	private Integer engineVolume;
 
 	@Column(name = "engine_power_kw")
-	private int enginePowerKW;
+	private Integer enginePowerKW;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "engine_emission_type")

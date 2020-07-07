@@ -10,7 +10,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import rs.ac.ni.pmf.web.config.ApplicationConfiguration;
 
-public class AppInit implements WebApplicationInitializer {
+public class ApplicationInitializer implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {

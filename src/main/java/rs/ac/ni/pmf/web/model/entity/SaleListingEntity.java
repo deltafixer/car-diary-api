@@ -33,7 +33,7 @@ public class SaleListingEntity {
 	@OneToOne(fetch = FetchType.LAZY)
 	private VehicleEntity vehicle;
 
-	private float price;
+	private Float price;
 
 	@Column(name = "date_added")
 	private Date dateAdded;

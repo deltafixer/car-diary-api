@@ -20,15 +20,15 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.GearboxType;
 @AllArgsConstructor
 public class VehicleSpecificationsDTO {
 	private Integer id;
-	private float price;
+	private Float price;
 	private Condition vehicleCondition;
 	private Date makeYear;
 	private BodyStyle bodyStyle;
 	private DriveType driveType;
-	private float kilometrage;
+	private Float kilometrage;
 	private FuelType fuelType;
-	private int engineVolume;
-	private int enginePowerKW;
+	private Integer engineVolume;
+	private Integer enginePowerKW;
 	private EngineEmissionType engineEmissionType;
 	private GearboxType gearboxType;
 }

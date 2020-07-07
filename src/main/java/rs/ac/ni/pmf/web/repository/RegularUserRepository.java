@@ -6,13 +6,13 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import rs.ac.ni.pmf.web.model.entity.VehicleEntity;
+import rs.ac.ni.pmf.web.model.entity.RegularUserEntity;
 
 @Repository
-public interface VehicleRepository
-		extends CrudRepository<VehicleEntity, Integer>, JpaSpecificationExecutor<VehicleEntity> {
+public interface RegularUserRepository
+		extends CrudRepository<RegularUserEntity, Integer>, JpaSpecificationExecutor<RegularUserEntity> {
 
 	@Override
-	List<VehicleEntity> findAll();
+	List<RegularUserEntity> findAll();
 
 }

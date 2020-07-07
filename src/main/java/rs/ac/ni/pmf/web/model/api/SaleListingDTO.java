@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SaleListingDTO {
 	private Integer id;
-	private float price;
+	private Float price;
 	private Date dateAdded;
 	private Range<Integer> suggestionScore;
 }
