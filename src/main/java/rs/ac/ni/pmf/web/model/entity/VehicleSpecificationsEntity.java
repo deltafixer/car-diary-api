@@ -74,6 +74,6 @@ public class VehicleSpecificationsEntity {
 	private GearboxType gearboxType;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicle_id")
+	@JoinColumn(name = "vehicle_vin")
 	private VehicleEntity vehicle;
 }

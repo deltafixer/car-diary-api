@@ -1,7 +1,5 @@
 package rs.ac.ni.pmf.web.model.api;
 
-import java.sql.Date;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,9 +10,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 @AllArgsConstructor
-public class VehicleServiceDTO {
-	private Integer id;
-	private Date dateTaken;
-	private Float price;
-	private String serviceDetails;
+public class UserVehicleDTO {
+	// COMMENT: wish I could use Optional here...
+	private String username;
+	private VehicleDTO vehicle;
 }

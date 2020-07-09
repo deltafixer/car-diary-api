@@ -2,6 +2,7 @@ package rs.ac.ni.pmf.web.model.entity;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,8 +30,15 @@ public class VehicleServiceEntity {
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicle_id")
+	@JoinColumn(name = "vehicle_vin")
 	private VehicleEntity vehicle;
 
+	@Column(name = "date_taken")
 	private Date dateTaken;
+
+	private Float price;
+
+	@Column(name = "service_details")
+	private String serviceDetails;
+
 }

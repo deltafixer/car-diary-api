@@ -32,7 +32,7 @@ public class VehicleAccidentEntity {
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicle_id")
+	@JoinColumn(name = "vehicle_vin")
 	private VehicleEntity vehicle;
 
 	@Column(name = "affected_vehicles")

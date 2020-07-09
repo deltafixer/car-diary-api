@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SaleListingEntity {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -41,5 +40,4 @@ public class SaleListingEntity {
 	@Builder.Default
 	@Column(name = "suggestion_score")
 	private Range<Integer> suggestionScore = Range.between(1, 100);
-
 }

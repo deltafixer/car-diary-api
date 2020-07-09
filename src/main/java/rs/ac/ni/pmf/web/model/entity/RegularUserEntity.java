@@ -18,7 +18,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegularUserEntity extends UserEntity {
-
 	@Column(name = "first_name")
 	private String firstName;
 

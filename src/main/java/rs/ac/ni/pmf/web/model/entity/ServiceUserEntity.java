@@ -19,7 +19,8 @@ import rs.ac.ni.pmf.web.model.entity.UserEnums.ServiceType;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ServiceUserEntity extends UserEntity {
-
+	private String name;
+	
 	@Column(name = "service_type")
 	private ServiceType serviceType;
 }

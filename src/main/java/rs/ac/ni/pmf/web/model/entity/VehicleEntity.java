@@ -8,9 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -32,8 +31,7 @@ public class VehicleEntity {
 
 //	COMMENT: suppose that we use 'Integer' only because of 'CrudRepository'?
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private String vin;
 
 	@Enumerated(EnumType.STRING)
 	private Make make;
@@ -53,7 +51,7 @@ public class VehicleEntity {
 	private List<VehicleAccidentEntity> accidents = new ArrayList<>();
 
 	@Builder.Default
-	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "vehicles", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<UserEntity> owners = new ArrayList<>();
 
 }

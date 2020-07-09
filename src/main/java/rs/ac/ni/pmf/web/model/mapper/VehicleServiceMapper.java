@@ -9,11 +9,15 @@ import rs.ac.ni.pmf.web.model.entity.VehicleServiceEntity;
 public class VehicleServiceMapper {
 
 	public VehicleServiceDTO toDto(final VehicleServiceEntity vehicleServiceEntity) {
-		return VehicleServiceDTO.builder().dateTaken(vehicleServiceEntity.getDateTaken()).build();
+		return VehicleServiceDTO.builder().dateTaken(vehicleServiceEntity.getDateTaken())
+				.price(vehicleServiceEntity.getPrice()).serviceDetails(vehicleServiceEntity.getServiceDetails())
+				.build();
 	}
 
 	public VehicleServiceEntity toEntity(final VehicleServiceDTO vehicleServiceDto) {
-		return VehicleServiceEntity.builder().dateTaken(vehicleServiceDto.getDateTaken()).build();
+		return VehicleServiceEntity.builder().dateTaken(vehicleServiceDto.getDateTaken())
+				.price(vehicleServiceDto.getPrice()).serviceDetails(vehicleServiceDto.getServiceDetails())
+				.build();
 	}
 
 }

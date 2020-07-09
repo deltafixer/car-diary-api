@@ -13,7 +13,7 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.Model;
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class VehicleDTO {
-	private Integer id;
+	private String vin;
 	private Make make;
 	private Model model;
 }

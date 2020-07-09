@@ -3,11 +3,11 @@ package rs.ac.ni.pmf.web.model.entity;
 public class VehicleEnums {
 
 	public enum Make {
-
+		OPEL, AUDI, RENAULT
 	}
 
 	public enum Model {
-
+		ASTRA_J, A1, MEGANE, LAGUNA
 	}
 
 	public enum Condition {

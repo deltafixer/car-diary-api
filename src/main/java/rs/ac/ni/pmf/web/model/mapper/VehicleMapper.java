@@ -9,10 +9,12 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEntity;
 public class VehicleMapper {
 
 	public VehicleDTO toDto(final VehicleEntity vehicleEntity) {
-		return VehicleDTO.builder().make(vehicleEntity.getMake()).model(vehicleEntity.getModel()).build();
+		return VehicleDTO.builder().vin(vehicleEntity.getVin()).make(vehicleEntity.getMake())
+				.model(vehicleEntity.getModel()).build();
 	}
 
 	public VehicleEntity toEntity(final VehicleDTO vehicleDto) {
-		return VehicleEntity.builder().make(vehicleDto.getMake()).model(vehicleDto.getModel()).build();
+		return VehicleEntity.builder().vin(vehicleDto.getVin()).make(vehicleDto.getMake()).model(vehicleDto.getModel())
+				.build();
 	}
 }
