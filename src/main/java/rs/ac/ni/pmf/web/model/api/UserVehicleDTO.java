@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class UserVehicleDTO {
+
 	// COMMENT: wish I could use Optional here...
 	private String username;
 	private VehicleDTO vehicle;
+
 }

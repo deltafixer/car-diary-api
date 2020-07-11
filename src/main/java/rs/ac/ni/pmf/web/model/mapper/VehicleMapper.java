@@ -17,4 +17,5 @@ public class VehicleMapper {
 		return VehicleEntity.builder().vin(vehicleDto.getVin()).make(vehicleDto.getMake()).model(vehicleDto.getModel())
 				.build();
 	}
+
 }

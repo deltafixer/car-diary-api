@@ -14,6 +14,7 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.GearboxType;
 
 @StaticMetamodel(VehicleSpecificationsEntity.class)
 public class VehicleSpecificationsEntity_ {
+
 	public static volatile SingularAttribute<VehicleSpecificationsEntity, Integer> id;
 	public static volatile SingularAttribute<VehicleSpecificationsEntity, Float> price;
 	public static volatile SingularAttribute<VehicleSpecificationsEntity, Condition> vehicleCondition;
@@ -27,4 +28,5 @@ public class VehicleSpecificationsEntity_ {
 	public static volatile SingularAttribute<VehicleSpecificationsEntity, EngineEmissionType> engineEmissionType;
 	public static volatile SingularAttribute<VehicleSpecificationsEntity, GearboxType> gearboxType;
 	public static volatile SingularAttribute<VehicleSpecificationsEntity, VehicleEntity> vehicle;
+
 }

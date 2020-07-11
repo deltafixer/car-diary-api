@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import rs.ac.ni.pmf.web.model.api.VehicleServiceDTO;
 
-@RequestMapping(path = "/vehicle-service/${vehicleVin}")
+@RequestMapping(path = "/vehicle/{vehicleVin}/service")
 public interface VehicleServiceRestController {
+	
 	@GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-	VehicleServiceDTO getVehicleService(@PathVariable(name = "vehicleVin", required = true) String vehicleVin);
+	VehicleServiceDTO getVehicleService(@PathVariable(name = "vehicleVin", required = true) final String vehicleVin);
+	
 }

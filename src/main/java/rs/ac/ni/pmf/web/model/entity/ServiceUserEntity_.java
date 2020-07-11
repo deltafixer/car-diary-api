@@ -7,6 +7,8 @@ import rs.ac.ni.pmf.web.model.entity.UserEnums.ServiceType;
 
 @StaticMetamodel(ServiceUserEntity.class)
 public class ServiceUserEntity_ extends UserEntity_ {
+
 	public static volatile SingularAttribute<ServiceUserEntity, String> name;
 	public static volatile SingularAttribute<ServiceUserEntity, ServiceType> serviceType;
+
 }

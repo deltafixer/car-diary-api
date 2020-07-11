@@ -17,4 +17,5 @@ public class VehicleAccidentMapper {
 		return VehicleAccidentEntity.builder().dateOfAccident(vehicleAccidentDto.getDateOfAccident())
 				.damagePriceEvaluation(vehicleAccidentDto.getDamagePriceEvaluation()).build();
 	}
+
 }

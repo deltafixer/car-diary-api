@@ -9,5 +9,4 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEntity;
 @Repository
 public interface VehicleRepository
 		extends CrudRepository<VehicleEntity, String>, JpaSpecificationExecutor<VehicleEntity> {
-
 }

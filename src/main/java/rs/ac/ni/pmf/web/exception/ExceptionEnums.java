@@ -5,6 +5,6 @@ public class ExceptionEnums {
 		NOT_FOUND, DUPLICATE
 	}
 	public enum ResourceType {
-		REGULAR_USER, SERVICE_USER, VEHICLE
+		PERSON_USER, SERVICE_USER, VEHICLE, SALE_LISTING
 	}
 }

@@ -16,8 +16,7 @@ public class VehicleServiceMapper {
 
 	public VehicleServiceEntity toEntity(final VehicleServiceDTO vehicleServiceDto) {
 		return VehicleServiceEntity.builder().dateTaken(vehicleServiceDto.getDateTaken())
-				.price(vehicleServiceDto.getPrice()).serviceDetails(vehicleServiceDto.getServiceDetails())
-				.build();
+				.price(vehicleServiceDto.getPrice()).serviceDetails(vehicleServiceDto.getServiceDetails()).build();
 	}
 
 }

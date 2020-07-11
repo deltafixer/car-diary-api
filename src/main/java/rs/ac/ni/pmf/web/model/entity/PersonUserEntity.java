@@ -14,13 +14,15 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder(toBuilder = true)
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "regular_user")
+@Table(name = "person_user")
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegularUserEntity extends UserEntity {
+public class PersonUserEntity extends UserEntity {
+
 	@Column(name = "first_name")
 	private String firstName;
 
 	@Column(name = "last_name")
 	private String lastName;
+
 }

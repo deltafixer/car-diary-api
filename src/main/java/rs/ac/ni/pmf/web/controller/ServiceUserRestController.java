@@ -13,11 +13,12 @@ import rs.ac.ni.pmf.web.model.api.ServiceUserDTO;
 public interface ServiceUserRestController {
 
 	@GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-	Page<ServiceUserDTO> getServiceUsers(
+	Page<ServiceUserDTO> getAllServiceUsers(
 			@RequestParam(name = "name", required = false) final String nameFilter,
 			@RequestParam(name = "page", required = false) final Integer page,
 			@RequestParam(name = "pageSize", required = false) final Integer pageSize);
 
 	@GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-	ServiceUserDTO getServiceUser(@PathVariable(name = "username", required = true) String username);
+	ServiceUserDTO getServiceUser(@PathVariable(name = "username", required = true) final String username);
+	
 }

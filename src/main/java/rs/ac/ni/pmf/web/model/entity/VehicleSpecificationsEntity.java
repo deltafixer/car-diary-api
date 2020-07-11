@@ -76,4 +76,5 @@ public class VehicleSpecificationsEntity {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "vehicle_vin")
 	private VehicleEntity vehicle;
+	
 }

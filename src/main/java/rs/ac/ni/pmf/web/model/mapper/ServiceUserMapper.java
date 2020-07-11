@@ -17,4 +17,5 @@ public class ServiceUserMapper {
 		return ServiceUserEntity.builder().username(serviceUserDto.getUsername()).name(serviceUserDto.getName())
 				.userType(serviceUserDto.getUserType()).serviceType(serviceUserDto.getServiceType()).build();
 	}
+
 }

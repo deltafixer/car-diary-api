@@ -3,7 +3,7 @@ package rs.ac.ni.pmf.web.model.entity;
 public class UserEnums {
 
 	public enum UserType {
-		ADMIN, SERVICE, REGULAR
+		PERSON, SERVICE
 	}
 
 	public enum ServiceType {

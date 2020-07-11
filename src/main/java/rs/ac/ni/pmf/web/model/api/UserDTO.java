@@ -14,7 +14,9 @@ import rs.ac.ni.pmf.web.model.entity.UserEnums.UserType;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NonFinal
 public abstract class UserDTO {
+
 	private String username;
 	private String password;
 	private UserType userType;
+
 }

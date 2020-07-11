@@ -1,7 +1,7 @@
 package rs.ac.ni.pmf.web.model.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,6 +30,7 @@ import rs.ac.ni.pmf.web.model.entity.UserEnums.UserType;
 // COMMENT: When a class extends this one, let a table be generated but only of subclass-specific fields
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class UserEntity {
+
 	@Id
 	private String username;
 
@@ -39,8 +40,12 @@ public abstract class UserEntity {
 	@Column(name = "user_type")
 	private UserType userType;
 
+	// COMMENT:
+	// https://thorben-janssen.com/best-practices-for-many-to-many-associations-with-hibernate-and-jpa/
+	// https://www.baeldung.com/jpa-many-to-many
 	@Builder.Default
 	@ManyToMany
 	@JoinTable(name = "user_vehicle", joinColumns = @JoinColumn(name = "username"), inverseJoinColumns = @JoinColumn(name = "vin"))
-	private List<VehicleEntity> vehicles = new ArrayList<>();
+	private Set<VehicleEntity> vehicles = new HashSet<>();
+
 }

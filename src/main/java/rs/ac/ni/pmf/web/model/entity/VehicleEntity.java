@@ -1,7 +1,9 @@
 package rs.ac.ni.pmf.web.model.entity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -29,7 +31,7 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.Model;
 @AllArgsConstructor
 public class VehicleEntity {
 
-//	COMMENT: suppose that we use 'Integer' only because of 'CrudRepository'?
+//	COMMENT: suppose that we use 'Integer' only because of, i.e., 'CrudRepository'?
 	@Id
 	private String vin;
 
@@ -51,7 +53,13 @@ public class VehicleEntity {
 	private List<VehicleAccidentEntity> accidents = new ArrayList<>();
 
 	@Builder.Default
-	@ManyToMany(mappedBy = "vehicles", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<UserEntity> owners = new ArrayList<>();
+	@ManyToMany(mappedBy = "vehicles", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	private Set<UserEntity> owners = new HashSet<>();
+
+//	@OneToOne
+//	@MapsId
+	@OneToOne(mappedBy = "vehicle")
+	private SaleListingEntity saleListing;
 
 }

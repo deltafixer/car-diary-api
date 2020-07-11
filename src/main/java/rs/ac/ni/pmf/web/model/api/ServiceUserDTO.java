@@ -14,6 +14,8 @@ import rs.ac.ni.pmf.web.model.entity.UserEnums.ServiceType;
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class ServiceUserDTO extends UserDTO {
+
 	private String name;
 	private ServiceType serviceType;
+
 }

@@ -1,7 +1,6 @@
 package rs.ac.ni.pmf.web.model.entity;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -35,13 +33,10 @@ public class VehicleAccidentEntity {
 	@JoinColumn(name = "vehicle_vin")
 	private VehicleEntity vehicle;
 
-	@Column(name = "affected_vehicles")
-	@ManyToMany(fetch = FetchType.LAZY)
-	private List<VehicleEntity> affectedVehicles;
-
 	@Column(name = "date_of_accident")
 	private Date dateOfAccident;
 
 	@Column(name = "damage_price_evaluation")
 	private Float damagePriceEvaluation;
+	
 }

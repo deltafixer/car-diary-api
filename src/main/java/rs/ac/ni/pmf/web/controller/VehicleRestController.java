@@ -17,40 +17,43 @@ import rs.ac.ni.pmf.web.exception.BadRequestException;
 import rs.ac.ni.pmf.web.exception.DuplicateResourceException;
 import rs.ac.ni.pmf.web.exception.ResourceException;
 import rs.ac.ni.pmf.web.exception.ResourceNotFoundException;
-import rs.ac.ni.pmf.web.model.api.RegularUserDTO;
-import rs.ac.ni.pmf.web.model.api.UserVehicleDTO;
+import rs.ac.ni.pmf.web.model.api.PersonUserDTO;
 import rs.ac.ni.pmf.web.model.api.VehicleAccidentDTO;
 import rs.ac.ni.pmf.web.model.api.VehicleDTO;
 import rs.ac.ni.pmf.web.model.api.VehicleServiceDTO;
 
 @RequestMapping(path = "/vehicle")
 public interface VehicleRestController {
+
 	// GET
 	@GetMapping(path = "/{vin}", produces = MediaType.APPLICATION_JSON_VALUE)
-	VehicleDTO getVehicle(@PathVariable(name = "vin", required = true) String vin);
+	VehicleDTO getVehicle(@PathVariable(name = "vin", required = true) final String vin)
+			throws ResourceNotFoundException;
 
 	@GetMapping(path = "/{vin}/services", produces = MediaType.APPLICATION_JSON_VALUE)
-	List<VehicleServiceDTO> getVehicleServices(@PathVariable(name = "vin", required = true) String vin);
+	List<VehicleServiceDTO> getVehicleServices(@PathVariable(name = "vin", required = true) final String vin);
 
 	@GetMapping(path = "/{vin}/accidents", produces = MediaType.APPLICATION_JSON_VALUE)
-	List<VehicleAccidentDTO> getVehicleAccidents(@PathVariable(name = "vin", required = true) String vin);
+	List<VehicleAccidentDTO> getVehicleAccidents(@PathVariable(name = "vin", required = true) final String vin)
+			throws ResourceNotFoundException;
 
 	@GetMapping(path = "/{vin}/owners", produces = MediaType.APPLICATION_JSON_VALUE)
-	List<RegularUserDTO> getVehicleOwners(@PathVariable(name = "vin", required = true) String vin);
+	List<PersonUserDTO> getVehicleOwners(@PathVariable(name = "vin", required = true) final String vin);
 
 	// POST
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	VehicleDTO saveVehicle(@RequestBody UserVehicleDTO userVehicle)
+	VehicleDTO addVehicle(@RequestBody final VehicleDTO vehicleDto)
 			throws DuplicateResourceException, ResourceNotFoundException;
 
 	// PUT
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@PutMapping(path = "/{vin}", consumes = MediaType.APPLICATION_JSON_VALUE)
-	void updateVehicle(@RequestBody VehicleDTO vehicle) throws ResourceException, BadRequestException;
+	void updateVehicle(@RequestBody final VehicleDTO vehicleDto) throws ResourceException, BadRequestException;
 
 	// DELETE
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@DeleteMapping(path = "/{vin}")
-	void deleteVehicle(@PathVariable(name = "vin") String vin) throws ResourceNotFoundException;
+	void deleteVehicle(@PathVariable(name = "vin") final String vin) throws ResourceNotFoundException;
+
 }

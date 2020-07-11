@@ -25,11 +25,9 @@ public class VehicleSpecificationsMapper {
 	public VehicleSpecificationsEntity toEntity(final VehicleSpecificationsDTO vehicleSpecificationsDto) {
 		return VehicleSpecificationsEntity.builder().price(vehicleSpecificationsDto.getPrice())
 				.vehicleCondition(vehicleSpecificationsDto.getVehicleCondition())
-				.makeYear(vehicleSpecificationsDto.getMakeYear())
-				.bodyStyle(vehicleSpecificationsDto.getBodyStyle())
+				.makeYear(vehicleSpecificationsDto.getMakeYear()).bodyStyle(vehicleSpecificationsDto.getBodyStyle())
 				.driveType(vehicleSpecificationsDto.getDriveType())
-				.kilometrage(vehicleSpecificationsDto.getKilometrage())
-				.fuelType(vehicleSpecificationsDto.getFuelType())
+				.kilometrage(vehicleSpecificationsDto.getKilometrage()).fuelType(vehicleSpecificationsDto.getFuelType())
 				.engineVolume(vehicleSpecificationsDto.getEngineVolume())
 				.enginePowerKW(vehicleSpecificationsDto.getEnginePowerKW())
 				.engineEmissionType(vehicleSpecificationsDto.getEngineEmissionType())

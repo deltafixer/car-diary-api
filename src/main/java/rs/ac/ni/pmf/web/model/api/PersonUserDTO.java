@@ -12,7 +12,9 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 @AllArgsConstructor
-public class RegularUserDTO extends UserDTO {
+public class PersonUserDTO extends UserDTO {
+
 	private String firstName;
 	private String lastName;
+
 }

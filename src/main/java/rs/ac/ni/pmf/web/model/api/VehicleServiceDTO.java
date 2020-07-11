@@ -13,8 +13,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class VehicleServiceDTO {
+
 	private Integer id;
 	private Date dateTaken;
 	private Float price;
 	private String serviceDetails;
+
 }
