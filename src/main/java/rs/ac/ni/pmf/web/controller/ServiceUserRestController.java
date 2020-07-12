@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import rs.ac.ni.pmf.web.model.api.ServiceUserDTO;
+import rs.ac.ni.pmf.web.model.entity.UserEnums.ServiceType;
 
 @RequestMapping(path = "/service-user")
 public interface ServiceUserRestController {
 
 	@GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-	Page<ServiceUserDTO> getAllServiceUsers(
-			@RequestParam(name = "name", required = false) final String nameFilter,
+	Page<ServiceUserDTO> getAllServiceUsers(@RequestParam(name = "name", required = false) final String nameFilter,
+			@RequestParam(name = "name", required = false) final ServiceType serviceTypeFilter,
 			@RequestParam(name = "page", required = false) final Integer page,
 			@RequestParam(name = "pageSize", required = false) final Integer pageSize);
 
 	@GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
 	ServiceUserDTO getServiceUser(@PathVariable(name = "username", required = true) final String username);
-	
+
 }

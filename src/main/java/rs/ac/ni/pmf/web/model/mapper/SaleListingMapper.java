@@ -10,14 +10,12 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEntity;
 public class SaleListingMapper {
 
 	public SaleListingDTO toDto(final SaleListingEntity saleListingEntity) {
-		return SaleListingDTO.builder().price(saleListingEntity.getPrice()).dateAdded(saleListingEntity.getDateAdded())
-				.suggestionScore(saleListingEntity.getSuggestionScore()).build();
+		return SaleListingDTO.builder().price(saleListingEntity.getPrice()).dateAdded(saleListingEntity.getDateAdded()).build();
 	}
 
 	public SaleListingEntity toEntity(final SaleListingDTO saleListingDto, final VehicleEntity vehicleEntity) {
 		return SaleListingEntity.builder().id(saleListingDto.getId()).vehicle(vehicleEntity)
-				.price(saleListingDto.getPrice()).dateAdded(saleListingDto.getDateAdded())
-				.suggestionScore(saleListingDto.getSuggestionScore()).build();
+				.price(saleListingDto.getPrice()).dateAdded(saleListingDto.getDateAdded()).build();
 	}
 
 }

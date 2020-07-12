@@ -12,6 +12,5 @@ public class SaleListingEntity_ {
 	public static volatile SingularAttribute<SaleListingEntity, VehicleEntity> vehicle;
 	public static volatile SingularAttribute<SaleListingEntity, Float> price;
 	public static volatile SingularAttribute<SaleListingEntity, Date> dateAdded;
-	public static volatile SingularAttribute<SaleListingEntity, Integer> suggestionScore;
 
 }

@@ -1,6 +1,6 @@
 package rs.ac.ni.pmf.web.service;
 
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
@@ -12,12 +12,11 @@ import lombok.RequiredArgsConstructor;
 import rs.ac.ni.pmf.web.exception.DuplicateResourceException;
 import rs.ac.ni.pmf.web.exception.ExceptionEnums.ResourceType;
 import rs.ac.ni.pmf.web.exception.ResourceNotFoundException;
-import rs.ac.ni.pmf.web.model.api.VehicleAccidentDTO;
+import rs.ac.ni.pmf.web.model.api.PersonUserDTO;
 import rs.ac.ni.pmf.web.model.api.VehicleDTO;
 import rs.ac.ni.pmf.web.model.entity.VehicleEntity;
-import rs.ac.ni.pmf.web.model.mapper.VehicleAccidentMapper;
+import rs.ac.ni.pmf.web.model.mapper.PersonUserMapper;
 import rs.ac.ni.pmf.web.model.mapper.VehicleMapper;
-import rs.ac.ni.pmf.web.repository.VehicleAccidentRepository;
 import rs.ac.ni.pmf.web.repository.VehicleRepository;
 
 @Service
@@ -25,9 +24,8 @@ import rs.ac.ni.pmf.web.repository.VehicleRepository;
 public class VehicleService {
 
 	private final VehicleRepository vehicleRepository;
-	private final VehicleAccidentRepository vehicleAccidentRepository;
 	private final VehicleMapper vehicleMapper;
-	private final VehicleAccidentMapper vehicleAccidentMapper;
+	private final PersonUserMapper personUserMapper;
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -39,13 +37,12 @@ public class VehicleService {
 		return vehicleMapper.toDto(vehicleEntity);
 	}
 
-	public List<VehicleAccidentDTO> getVehicleAccidents(final String vin) throws ResourceNotFoundException {
-		final VehicleEntity vehicleEntity = vehicleRepository.findById(vin)
+	public Set<PersonUserDTO> getVehicleOwners(String vehicleVin) throws ResourceNotFoundException {
+		final VehicleEntity vehicleEntity = vehicleRepository.findById(vehicleVin)
 				.orElseThrow(() -> new ResourceNotFoundException(ResourceType.VEHICLE,
-						"Vehicle with VIN '" + vin + "' does not exist."));
+						"Vehicle with VIN '" + vehicleVin + "' does not exist."));
 
-		return vehicleAccidentRepository.findByVehicleVin(vehicleEntity.getVin()).stream()
-				.map(vehicleAccidentMapper::toDto).collect(Collectors.toList());
+		return vehicleEntity.getOwners().stream().map(personUserMapper::toDto).collect(Collectors.toSet());
 	}
 
 	public VehicleDTO addVehicle(final VehicleDTO vehicleDTO) throws DuplicateResourceException {

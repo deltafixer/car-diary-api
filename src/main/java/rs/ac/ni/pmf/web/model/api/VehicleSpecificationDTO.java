@@ -18,7 +18,7 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.GearboxType;
 @Builder
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 @AllArgsConstructor
-public class VehicleSpecificationsDTO {
+public class VehicleSpecificationDTO {
 
 	private Integer id;
 	private Float price;
@@ -32,5 +32,6 @@ public class VehicleSpecificationsDTO {
 	private Integer enginePowerKW;
 	private EngineEmissionType engineEmissionType;
 	private GearboxType gearboxType;
+	private String vehicleVin;
 
 }

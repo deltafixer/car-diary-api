@@ -18,6 +18,5 @@ public class SaleListingDTO {
 	private String vehicleVin;
 	private Float price;
 	private Date dateAdded;
-	private Integer suggestionScore;
 
 }

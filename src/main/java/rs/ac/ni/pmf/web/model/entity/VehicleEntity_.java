@@ -10,13 +10,14 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.Model;
 
 @StaticMetamodel(VehicleEntity.class)
 public class VehicleEntity_ {
-	
+
 	public static volatile SingularAttribute<VehicleEntity, String> vin;
 	public static volatile SingularAttribute<VehicleEntity, Make> make;
 	public static volatile SingularAttribute<VehicleEntity, Model> model;
-	public static volatile SingularAttribute<VehicleEntity, VehicleSpecificationsEntity> specifications;
+	public static volatile SingularAttribute<VehicleEntity, VehicleSpecificationEntity> specifications;
 	public static volatile ListAttribute<VehicleEntity, VehicleServiceEntity> services;
 	public static volatile ListAttribute<VehicleEntity, VehicleAccidentEntity> accidents;
 	public static volatile SetAttribute<VehicleEntity, UserEntity> owners;
-	
+	public static volatile SingularAttribute<VehicleEntity, VehicleSpecificationEntity> saleListing;
+
 }

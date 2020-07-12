@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class VehicleServiceDTO {
 
 	private Integer id;
+	private String vehicleVin;
 	private Date dateTaken;
 	private Float price;
 	private String serviceDetails;

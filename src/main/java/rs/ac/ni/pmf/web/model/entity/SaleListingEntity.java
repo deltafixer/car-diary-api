@@ -16,11 +16,13 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @Entity
 @Table(name = "sale_listing")
+@NoArgsConstructor
 @AllArgsConstructor
 public class SaleListingEntity {
 
@@ -40,8 +42,5 @@ public class SaleListingEntity {
 
 	@Column(name = "date_added")
 	private Date dateAdded;
-
-	@Column(name = "suggestion_score")
-	private Integer suggestionScore;
 
 }

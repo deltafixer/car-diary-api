@@ -32,14 +32,11 @@ public class SaleListingSearchSpecification implements Specification<SaleListing
 
 		final Path<Float> price = root.get(SaleListingEntity_.price);
 		final Path<Date> dateAdded = root.get(SaleListingEntity_.dateAdded);
-		final Path<Integer> suggestionScore = root.get(SaleListingEntity_.suggestionScore);
 
 		final Float minPriceFilter = searchOptions.getMinPrice();
 		final Float maxPriceFilter = searchOptions.getMaxPrice();
 		final Date fromDateFilter = searchOptions.getFromDate();
 		final Date toDateFilter = searchOptions.getToDate();
-		final Integer minSuggestionScoreFilter = searchOptions.getMinSuggestionScore();
-		final Integer maxSuggestionScoreFilter = searchOptions.getMaxSuggestionScore();
 
 		if (minPriceFilter != null) {
 			query.having(criteriaBuilder.ge(price, minPriceFilter));
@@ -57,16 +54,7 @@ public class SaleListingSearchSpecification implements Specification<SaleListing
 			query.having(criteriaBuilder.greaterThanOrEqualTo(dateAdded, toDateFilter));
 		}
 
-		if (minSuggestionScoreFilter != null) {
-			query.having(criteriaBuilder.ge(suggestionScore, minSuggestionScoreFilter));
-		}
-
-		if (maxSuggestionScoreFilter != null) {
-			query.having(criteriaBuilder.le(suggestionScore, maxSuggestionScoreFilter));
-		}
-
-		query.orderBy(criteriaBuilder.desc(suggestionScore), criteriaBuilder.asc(price),
-				criteriaBuilder.desc(dateAdded));
+		query.orderBy(criteriaBuilder.asc(price), criteriaBuilder.desc(dateAdded));
 
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}

@@ -13,8 +13,6 @@ public class SaleListingSearchOptions {
 	private Float maxPrice;
 	private Date fromDate;
 	private Date toDate;
-	private Integer minSuggestionScore;
-	private Integer maxSuggestionScore;
 	private Integer page;
 	private Integer size;
 

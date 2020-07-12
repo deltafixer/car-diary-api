@@ -15,4 +15,5 @@ public interface VehicleServiceRepository extends PagingAndSortingRepository<Veh
 	@Override
 	List<VehicleServiceEntity> findAll();
 
+	List<VehicleServiceEntity> findByVehicleVin(final String vehicleVin);
 }

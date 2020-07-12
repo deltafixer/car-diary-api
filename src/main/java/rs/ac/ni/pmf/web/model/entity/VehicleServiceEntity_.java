@@ -10,6 +10,7 @@ public class VehicleServiceEntity_ {
 
 	public static volatile SingularAttribute<VehicleServiceEntity, Integer> id;
 	public static volatile SingularAttribute<VehicleServiceEntity, VehicleEntity> vehicle;
+	public static volatile SingularAttribute<VehicleServiceEntity, ServiceUserEntity> servicedBy;
 	public static volatile SingularAttribute<VehicleServiceEntity, Date> dateTaken;
 	public static volatile SingularAttribute<VehicleServiceEntity, Float> price;
 	public static volatile SingularAttribute<VehicleServiceEntity, String> serviceDetails;

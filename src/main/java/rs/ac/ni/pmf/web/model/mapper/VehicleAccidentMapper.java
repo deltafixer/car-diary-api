@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import rs.ac.ni.pmf.web.model.api.VehicleAccidentDTO;
 import rs.ac.ni.pmf.web.model.entity.VehicleAccidentEntity;
+import rs.ac.ni.pmf.web.model.entity.VehicleEntity;
 
 @Component
 public class VehicleAccidentMapper {
@@ -13,8 +14,9 @@ public class VehicleAccidentMapper {
 				.damagePriceEvaluation(vehicleAccidentEntity.getDamagePriceEvaluation()).build();
 	}
 
-	public VehicleAccidentEntity toEntity(final VehicleAccidentDTO vehicleAccidentDto) {
-		return VehicleAccidentEntity.builder().dateOfAccident(vehicleAccidentDto.getDateOfAccident())
+	public VehicleAccidentEntity toEntity(final VehicleAccidentDTO vehicleAccidentDto, final VehicleEntity vehicle) {
+		return VehicleAccidentEntity.builder().vehicle(
+				vehicle).dateOfAccident(vehicleAccidentDto.getDateOfAccident())
 				.damagePriceEvaluation(vehicleAccidentDto.getDamagePriceEvaluation()).build();
 	}
 

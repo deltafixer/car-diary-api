@@ -31,7 +31,7 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.GearboxType;
 @Table(name = "vehicle_specifications")
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleSpecificationsEntity {
+public class VehicleSpecificationEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

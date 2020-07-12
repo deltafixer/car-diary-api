@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import javassist.NotFoundException;
 import rs.ac.ni.pmf.web.exception.BadRequestException;
 import rs.ac.ni.pmf.web.exception.ResourceException;
 import rs.ac.ni.pmf.web.exception.ResourceNotFoundException;
@@ -26,21 +27,23 @@ import rs.ac.ni.pmf.web.model.api.SaleListingDTO;
 
 @RequestMapping(path = "/sale-listing")
 public interface SaleListingRestController {
-	
+
 	// GET
 	@GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 	Page<SaleListingDTO> getAllSaleListings(@RequestParam(name = "minPrice", required = false) final Float minPrice,
 			@RequestParam(name = "maxPrice", required = false) final Float maxPrice,
 			@RequestParam(name = "fromDate", required = false) final Date fromDate,
 			@RequestParam(name = "toDate", required = false) final Date toDate,
-			@RequestParam(name = "minSuggestionScore", required = false) final Integer minSuggestionScore,
-			@RequestParam(name = "maxSuggestionScore", required = false) final Integer maxSuggestionScore,
 			@RequestParam(name = "page", required = false) final Integer page,
 			@RequestParam(name = "pageSize", required = false) final Integer pageSize);
 
 	@GetMapping(path = "/vehicle/{vehicleVin}", produces = MediaType.APPLICATION_JSON_VALUE)
 	SaleListingDTO getSaleListing(@PathVariable(name = "vehicleVin", required = true) final String vehicleVin)
 			throws ResourceNotFoundException;
+
+	@GetMapping(path = "/vehicle/{vehicleVin}/suggestionScore", produces = MediaType.APPLICATION_JSON_VALUE)
+	Double getSaleListingSuggestionScore(@PathVariable(name = "vehicleVin", required = true) final String vehicleVin)
+			throws ResourceNotFoundException, NotFoundException;
 
 	// POST
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -58,5 +61,5 @@ public interface SaleListingRestController {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@DeleteMapping(path = "/vehicle/{vehicleVin}")
 	void deleteSaleListing(@PathVariable(name = "vehicleVin") final String vehicleVin) throws ResourceNotFoundException;
-	
+
 }

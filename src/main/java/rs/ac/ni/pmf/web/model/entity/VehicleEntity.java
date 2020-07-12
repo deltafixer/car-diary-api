@@ -42,7 +42,7 @@ public class VehicleEntity {
 	private Model model;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	private VehicleSpecificationsEntity specifications;
+	private VehicleSpecificationEntity specifications;
 
 	@Builder.Default
 	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
@@ -55,7 +55,7 @@ public class VehicleEntity {
 	@Builder.Default
 	@ManyToMany(mappedBy = "vehicles", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)
-	private Set<UserEntity> owners = new HashSet<>();
+	private Set<PersonUserEntity> owners = new HashSet<>();
 
 //	@OneToOne
 //	@MapsId

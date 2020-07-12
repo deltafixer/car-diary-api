@@ -1,6 +1,6 @@
 package rs.ac.ni.pmf.web.controller;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,27 +18,21 @@ import rs.ac.ni.pmf.web.exception.DuplicateResourceException;
 import rs.ac.ni.pmf.web.exception.ResourceException;
 import rs.ac.ni.pmf.web.exception.ResourceNotFoundException;
 import rs.ac.ni.pmf.web.model.api.PersonUserDTO;
-import rs.ac.ni.pmf.web.model.api.VehicleAccidentDTO;
 import rs.ac.ni.pmf.web.model.api.VehicleDTO;
-import rs.ac.ni.pmf.web.model.api.VehicleServiceDTO;
 
 @RequestMapping(path = "/vehicle")
 public interface VehicleRestController {
 
 	// GET
-	@GetMapping(path = "/{vin}", produces = MediaType.APPLICATION_JSON_VALUE)
-	VehicleDTO getVehicle(@PathVariable(name = "vin", required = true) final String vin)
+	@GetMapping(path = "/{vehicleVin}", produces = MediaType.APPLICATION_JSON_VALUE)
+	VehicleDTO getVehicle(@PathVariable(name = "vehicleVin", required = true) final String vehicleVin)
 			throws ResourceNotFoundException;
 
-	@GetMapping(path = "/{vin}/services", produces = MediaType.APPLICATION_JSON_VALUE)
-	List<VehicleServiceDTO> getVehicleServices(@PathVariable(name = "vin", required = true) final String vin);
-
-	@GetMapping(path = "/{vin}/accidents", produces = MediaType.APPLICATION_JSON_VALUE)
-	List<VehicleAccidentDTO> getVehicleAccidents(@PathVariable(name = "vin", required = true) final String vin)
+	// COMMENT: the only reason this function is here and not in
+	// PersonUserController is to keep cleaner paths
+	@GetMapping(path = "/{vehicleVin}/owners", produces = MediaType.APPLICATION_JSON_VALUE)
+	Set<PersonUserDTO> getVehicleOwners(@PathVariable(name = "vehicleVin", required = true) final String vehicleVin)
 			throws ResourceNotFoundException;
-
-	@GetMapping(path = "/{vin}/owners", produces = MediaType.APPLICATION_JSON_VALUE)
-	List<PersonUserDTO> getVehicleOwners(@PathVariable(name = "vin", required = true) final String vin);
 
 	// POST
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -48,12 +42,12 @@ public interface VehicleRestController {
 
 	// PUT
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	@PutMapping(path = "/{vin}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(path = "/{vehicleVin}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	void updateVehicle(@RequestBody final VehicleDTO vehicleDto) throws ResourceException, BadRequestException;
 
 	// DELETE
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	@DeleteMapping(path = "/{vin}")
-	void deleteVehicle(@PathVariable(name = "vin") final String vin) throws ResourceNotFoundException;
+	@DeleteMapping(path = "/{vehicleVin}")
+	void deleteVehicle(@PathVariable(name = "vehicleVin") final String vehicleVin) throws ResourceNotFoundException;
 
 }
