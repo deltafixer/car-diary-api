@@ -154,7 +154,7 @@ public class SaleListingService {
 
 		@SuppressWarnings("deprecation")
 		Double serviceScore = (double) (vehicleServiceCount / (RECOMMENDED_SERVICE_COUNT_PER_YEAR
-				* (today.getYear() - vehicleEntity.getSpecifications().getMakeYear().getYear()))) * 40
+				* (today.getYear() - vehicleEntity.getSpecification().getMakeYear().getYear()))) * 40
 				* (vehicleServiceCount / (vehicleServiceCount - authorizedServicesCount));
 		
 		Double accidentScore = (double) ((MAXIMUM_ACCIDENT_COUNT - vehicleAccidentsCount) / MAXIMUM_ACCIDENT_COUNT);

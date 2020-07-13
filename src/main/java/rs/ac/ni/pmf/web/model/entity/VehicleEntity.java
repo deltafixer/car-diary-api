@@ -6,15 +6,18 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,23 +29,27 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.Model;
 @Data
 @Builder
 @Entity
-@Table(name = "vehicle")
+@Table(name = "vehicle", uniqueConstraints = { @UniqueConstraint(columnNames = "vin") })
 @NoArgsConstructor
 @AllArgsConstructor
 public class VehicleEntity {
 
 //	COMMENT: suppose that we use 'Integer' only because of, i.e., 'CrudRepository'?
 	@Id
+	@Column(nullable = false, length = 17, unique = true)
 	private String vin;
 
 	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 20)
 	private Make make;
 
 	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 20)
 	private Model model;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	private VehicleSpecificationEntity specifications;
+	@JoinColumn(name = "specification_id", nullable = false)
+	private VehicleSpecificationEntity specification;
 
 	@Builder.Default
 	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
@@ -59,7 +66,8 @@ public class VehicleEntity {
 
 //	@OneToOne
 //	@MapsId
-	@OneToOne(mappedBy = "vehicle")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "sale_listing_id", nullable = true)
 	private SaleListingEntity saleListing;
 
 }

@@ -28,7 +28,7 @@ import rs.ac.ni.pmf.web.model.entity.VehicleEnums.GearboxType;
 @Data
 @Builder
 @Entity
-@Table(name = "vehicle_specifications")
+@Table(name = "vehicle_specification")
 @NoArgsConstructor
 @AllArgsConstructor
 public class VehicleSpecificationEntity {
@@ -37,44 +37,47 @@ public class VehicleSpecificationEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	@Column(nullable = false)
 	private Float price;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "vahicle_condition")
+	@Column(name = "vahicle_condition", length = 30, columnDefinition = "varchar(30) default 'USED'")
 	private Condition vehicleCondition;
 
+	@Column(nullable = false)
 	private Date makeYear;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "body_style")
+	@Column(name = "body_style", length = 20, nullable = false)
 	private BodyStyle bodyStyle;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "drive_type")
+	@Column(name = "drive_type", length = 10, nullable = false)
 	private DriveType driveType;
 
+	@Column(nullable = false)
 	private Float kilometrage;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "fuel_type")
+	@Column(name = "fuel_type", length = 20, nullable = false)
 	private FuelType fuelType;
 
-	@Column(name = "engine_volume")
+	@Column(name = "engine_volume", nullable = false)
 	private Integer engineVolume;
 
-	@Column(name = "engine_power_kw")
+	@Column(name = "engine_power_kw", nullable = false)
 	private Integer enginePowerKW;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "engine_emission_type")
+	@Column(name = "engine_emission_type", length = 5, nullable = false)
 	private EngineEmissionType engineEmissionType;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "gearbox_type")
+	@Column(name = "gearbox_type", length = 10, nullable = false)
 	private GearboxType gearboxType;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicle_vin")
+	@JoinColumn(name = "vehicle_vin", nullable = false)
 	private VehicleEntity vehicle;
-	
+
 }

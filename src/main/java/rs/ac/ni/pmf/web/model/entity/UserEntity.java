@@ -2,6 +2,8 @@ package rs.ac.ni.pmf.web.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -25,12 +27,14 @@ import rs.ac.ni.pmf.web.model.entity.UserEnums.UserType;
 public abstract class UserEntity {
 
 	@Id
+	@Column(nullable = false, unique = true, length = 30)
 	private String username;
 
-	@Column
+	@Column(length = 50, nullable = false)
 	private String password;
 
-	@Column(name = "user_type")
+	@Enumerated(EnumType.STRING)
+	@Column(name = "user_type", length = 20, columnDefinition = "varchar(20) default 'PERSON'")
 	private UserType userType;
 
 }

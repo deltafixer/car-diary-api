@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -27,9 +29,11 @@ import rs.ac.ni.pmf.web.model.entity.UserEnums.ServiceType;
 @AllArgsConstructor
 public class ServiceUserEntity extends UserEntity {
 
+	@Column(nullable = false, length = 30)
 	private String name;
 
-	@Column(name = "service_type")
+	@Column(name = "service_type", columnDefinition = "varchar(20) default 'AUTHORIZED'")
+	@Enumerated(EnumType.STRING)
 	private ServiceType serviceType;
 
 	@Builder.Default

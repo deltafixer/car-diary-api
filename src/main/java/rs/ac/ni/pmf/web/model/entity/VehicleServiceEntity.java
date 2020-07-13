@@ -30,19 +30,20 @@ public class VehicleServiceEntity {
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "vehicle_vin")
+	@JoinColumn(name = "vehicle_vin", nullable = false)
 	private VehicleEntity vehicle;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "service_user_id", nullable = false)
 	private ServiceUserEntity servicedBy;
 
-	@Column(name = "date_taken", nullable = false)
+	@Column(name = "date_taken", columnDefinition = "datetime default CURRENT_TIMESTAMP")
 	private Date dateTaken;
 
+	@Column(nullable = false)
 	private Float price;
 
-	@Column(name = "service_details")
+	@Column(name = "service_details", length = 255, nullable = false)
 	private String serviceDetails;
 
 }

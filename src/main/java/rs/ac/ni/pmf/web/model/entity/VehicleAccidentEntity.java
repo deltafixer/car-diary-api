@@ -30,13 +30,13 @@ public class VehicleAccidentEntity {
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicle_vin")
+	@JoinColumn(name = "vehicle_vin", nullable = false)
 	private VehicleEntity vehicle;
 
-	@Column(name = "date_of_accident")
+	@Column(name = "date_of_accident", columnDefinition = "datetime default CURRENT_TIMESTAMP")
 	private Date dateOfAccident;
 
-	@Column(name = "damage_price_evaluation")
+	@Column(name = "damage_price_evaluation", nullable = false)
 	private Float damagePriceEvaluation;
-	
+
 }
