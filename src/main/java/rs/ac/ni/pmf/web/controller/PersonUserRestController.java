@@ -2,6 +2,8 @@ package rs.ac.ni.pmf.web.controller;
 
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -49,14 +51,14 @@ public interface PersonUserRestController {
 	// POST
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE)
-	PersonUserDTO addPersonUser(@RequestBody final PersonUserDTO personUser)
+	PersonUserDTO addPersonUser(@RequestBody @Valid final PersonUserDTO personUser)
 			throws ResourceException, BadRequestException;
 
 	// PUT
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@PutMapping(path = "/{username}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	void updatePersonUser(@PathVariable(name = "username") final String username,
-			@RequestBody final PersonUserDTO personUser) throws ResourceException, BadRequestException;
+			@RequestBody @Valid final PersonUserDTO personUser) throws ResourceException, BadRequestException;
 
 	// DELETE
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

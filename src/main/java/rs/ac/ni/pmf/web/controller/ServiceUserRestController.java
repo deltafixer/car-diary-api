@@ -2,6 +2,8 @@ package rs.ac.ni.pmf.web.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -37,19 +39,19 @@ public interface ServiceUserRestController {
 			throws ResourceNotFoundException;
 
 	@GetMapping(path = "/{username}/services", produces = MediaType.APPLICATION_JSON_VALUE)
-	List<VehicleServiceDTO> getServiceUserServices(String username) throws ResourceNotFoundException;
+	List<VehicleServiceDTO> getServiceUserServices(final String username) throws ResourceNotFoundException;
 
 	// POST
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE)
-	ServiceUserDTO addServiceUser(@RequestBody final ServiceUserDTO serviceUserDto)
+	ServiceUserDTO addServiceUser(@RequestBody @Valid final ServiceUserDTO serviceUserDto)
 			throws ResourceException, BadRequestException;
 
 	// PUT
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@PutMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-	void updateServiceUser(String username, ServiceUserDTO serviceUserDto)
-			throws ResourceException, BadRequestException;
+	void updateServiceUser(@PathVariable(name = "username") final String username,
+			@RequestBody @Valid final ServiceUserDTO serviceUserDto) throws ResourceException, BadRequestException;
 
 	// DELETE
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

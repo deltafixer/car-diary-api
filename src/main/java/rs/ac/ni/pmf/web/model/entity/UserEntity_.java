@@ -6,6 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 
 import rs.ac.ni.pmf.web.model.entity.UserEnums.UserType;
 
+
 @StaticMetamodel(UserEntity.class)
 public class UserEntity_ {
 

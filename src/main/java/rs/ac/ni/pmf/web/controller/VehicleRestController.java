@@ -3,6 +3,8 @@ package rs.ac.ni.pmf.web.controller;
 import java.sql.Date;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -63,13 +65,13 @@ public interface VehicleRestController {
 	// POST
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	VehicleDTO addVehicle(@RequestBody final VehicleDTO vehicleDto)
+	VehicleDTO addVehicle(@RequestBody @Valid final VehicleDTO vehicleDto)
 			throws DuplicateResourceException, ResourceNotFoundException;
 
 	// PUT
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@PutMapping(path = "/{vehicleVin}", consumes = MediaType.APPLICATION_JSON_VALUE)
-	void updateVehicle(@RequestBody final VehicleDTO vehicleDto) throws ResourceException, BadRequestException;
+	void updateVehicle(@RequestBody @Valid final VehicleDTO vehicleDto) throws ResourceException, BadRequestException;
 
 	// DELETE
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

@@ -1,5 +1,7 @@
 package rs.ac.ni.pmf.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,14 +31,14 @@ public interface VehicleSpecificationRestController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	VehicleSpecificationDTO addVehicleSpecification(@PathVariable(name = "vehicleVin") final String vehicleVin,
-			@RequestBody final VehicleSpecificationDTO vehicleSpecificationDto)
+			@RequestBody @Valid final VehicleSpecificationDTO vehicleSpecificationDto)
 			throws ResourceException, BadRequestException;
 
 	// PUT
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	VehicleSpecificationDTO updateVehicleSpecification(@PathVariable(name = "vehicleVin") final String vehicleVin,
-			@RequestBody final VehicleSpecificationDTO vehicleSpecificationDto)
+			@RequestBody @Valid final VehicleSpecificationDTO vehicleSpecificationDto)
 			throws ResourceException, BadRequestException;
 
 	// DELETE

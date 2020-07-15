@@ -2,6 +2,8 @@ package rs.ac.ni.pmf.web.controller;
 
 import java.sql.Date;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -49,13 +51,13 @@ public interface SaleListingRestController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping(path = "/vehicle/{vehicleVin}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	SaleListingDTO saveSaleListing(@PathVariable(name = "vehicleVin") final String vehicleVin,
-			@RequestBody final SaleListingDTO saleListingDto) throws ResourceException, BadRequestException;
+			@RequestBody @Valid final SaleListingDTO saleListingDto) throws ResourceException, BadRequestException;
 
 	// PUT
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@PutMapping(path = "/vehicle/{vehicleVin}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	void updateSaleListing(@PathVariable(name = "vehicleVin") final String vehicleVin,
-			@RequestBody final SaleListingDTO saleListingDto) throws ResourceException, BadRequestException;
+			@RequestBody @Valid final SaleListingDTO saleListingDto) throws ResourceException, BadRequestException;
 
 	// DELETE
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

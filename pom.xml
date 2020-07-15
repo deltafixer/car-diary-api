@@ -13,6 +13,7 @@
 		<spring.data.version>2.1.9.RELEASE</spring.data.version>
 		<spring.security.version>5.3.3.RELEASE</spring.security.version>
 		<hibernate.version>5.4.15.Final</hibernate.version>
+		<hibernate.validator.version>6.1.5.Final</hibernate.validator.version>
 		<jackson.version>2.11.0</jackson.version>
 		<junit.version>4.13</junit.version>
 		<jmockit.version>1.45</jmockit.version>
@@ -64,6 +65,15 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		
+		<!-- COMMENT: Thanks to Danilo Petkovic :) -->
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>${hibernate.validator.version}</version>
+		</dependency>
+
+		
 
 		<!-- Database (MySQL) -->
 		<dependency>
