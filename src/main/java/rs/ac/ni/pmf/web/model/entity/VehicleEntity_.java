@@ -14,10 +14,10 @@ public class VehicleEntity_ {
 	public static volatile SingularAttribute<VehicleEntity, String> vin;
 	public static volatile SingularAttribute<VehicleEntity, Make> make;
 	public static volatile SingularAttribute<VehicleEntity, Model> model;
-	public static volatile SingularAttribute<VehicleEntity, VehicleSpecificationEntity> specifications;
+	public static volatile SingularAttribute<VehicleEntity, VehicleSpecificationEntity> specification;
 	public static volatile ListAttribute<VehicleEntity, VehicleServiceEntity> services;
 	public static volatile ListAttribute<VehicleEntity, VehicleAccidentEntity> accidents;
 	public static volatile SetAttribute<VehicleEntity, UserEntity> owners;
-	public static volatile SingularAttribute<VehicleEntity, VehicleSpecificationEntity> saleListing;
+	public static volatile SingularAttribute<VehicleEntity, SaleListingEntity> saleListing;
 
 }

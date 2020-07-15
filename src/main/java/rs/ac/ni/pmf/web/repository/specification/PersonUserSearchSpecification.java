@@ -36,14 +36,14 @@ public class PersonUserSearchSpecification implements Specification<PersonUserEn
 		final Path<String> firstName = root.get(PersonUserEntity_.firstName);
 		final Path<String> lastName = root.get(PersonUserEntity_.lastName);
 
-		final String firstNameFilter = searchOptions.getFirstNameFilter();
+		final String firstNameFilter = searchOptions.getFirstName();
 
 		if (firstNameFilter != null && !firstNameFilter.trim().isEmpty()) {
 			predicates.add(
 					criteriaBuilder.like(criteriaBuilder.lower(firstName), "%" + firstNameFilter.toLowerCase() + "%"));
 		}
 
-		final String lastNameFilter = searchOptions.getLastNameFilter();
+		final String lastNameFilter = searchOptions.getLastName();
 
 		if (lastNameFilter != null && !lastNameFilter.trim().isEmpty()) {
 			predicates.add(

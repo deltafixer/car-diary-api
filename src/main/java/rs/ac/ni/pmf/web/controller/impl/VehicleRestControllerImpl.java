@@ -30,16 +30,16 @@ public class VehicleRestControllerImpl implements VehicleRestController {
 	private final VehicleService vehicleService;
 
 	@Override
-	public Page<VehicleDTO> getAllVehicles(final Float priceFrom, final Float priceTo, final Condition conditionFilter,
-			final Date makeYearFilter, final BodyStyle bodyStyleFilter, final DriveType driveTypeFilter,
+	public Page<VehicleDTO> getAllVehicles(final Float priceFrom, final Float priceTo, final Condition condition,
+			final Date makeYear, final BodyStyle bodyStyle, final DriveType driveType,
 			final Float kilometrageFrom, final Float kilometrageTo, final FuelType fuelType, final Integer engineVolume,
-			final Integer enginePowerKW, final EngineEmissionType engineEmissionTypeFilter,
-			final GearboxType gearboxTypeFilter, final Integer page, final Integer pageSize) {
+			final Integer enginePowerKW, final EngineEmissionType engineEmissionType,
+			final GearboxType gearboxType, final Integer page, final Integer pageSize) {
 		final VehicleSearchOptions searchOptions = VehicleSearchOptions.builder().priceFrom(priceFrom).priceTo(priceTo)
-				.conditionFilter(conditionFilter).makeYearFilter(makeYearFilter).bodyStyleFilter(bodyStyleFilter)
-				.driveTypeFilter(driveTypeFilter).kilometrageFrom(kilometrageFrom).kilometrageTo(kilometrageTo)
+				.condition(condition).makeYear(makeYear).bodyStyle(bodyStyle)
+				.driveType(driveType).kilometrageFrom(kilometrageFrom).kilometrageTo(kilometrageTo)
 				.fuelType(fuelType).engineVolume(engineVolume).enginePowerKW(enginePowerKW)
-				.engineEmissionTypeFilter(engineEmissionTypeFilter).gearboxTypeFilter(gearboxTypeFilter).page(page)
+				.engineEmissionType(engineEmissionType).gearboxType(gearboxType).page(page)
 				.size(pageSize).build();
 
 		return vehicleService.getAllVehicles(searchOptions);

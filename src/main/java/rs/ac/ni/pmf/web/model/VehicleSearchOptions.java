@@ -17,17 +17,17 @@ public class VehicleSearchOptions {
 
 	private Float priceFrom;
 	private Float priceTo;
-	private Condition conditionFilter;
-	private Date makeYearFilter;
-	private BodyStyle bodyStyleFilter;
-	private DriveType driveTypeFilter;
+	private Condition condition;
+	private Date makeYear;
+	private BodyStyle bodyStyle;
+	private DriveType driveType;
 	private Float kilometrageFrom;
 	private Float kilometrageTo;
 	private FuelType fuelType;
 	private Integer engineVolume;
 	private Integer enginePowerKW;
-	private EngineEmissionType engineEmissionTypeFilter;
-	private GearboxType gearboxTypeFilter;
+	private EngineEmissionType engineEmissionType;
+	private GearboxType gearboxType;
 	private Integer page;
 	private Integer size;
 	

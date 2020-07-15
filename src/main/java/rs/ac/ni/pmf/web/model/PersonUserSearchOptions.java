@@ -7,8 +7,8 @@ import lombok.Value;
 @Builder
 public class PersonUserSearchOptions {
 
-	private String firstNameFilter;
-	private String lastNameFilter;
+	private String firstName;
+	private String lastName;
 	private Integer minVehicleCount;
 	private Integer maxVehicleCount;
 	private Integer page;

@@ -1,6 +1,6 @@
 package rs.ac.ni.pmf.web.model.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

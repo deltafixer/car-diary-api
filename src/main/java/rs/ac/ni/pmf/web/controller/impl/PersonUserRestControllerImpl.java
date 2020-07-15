@@ -22,10 +22,10 @@ public class PersonUserRestControllerImpl implements PersonUserRestController {
 	private final PersonUserService personUserService;
 
 	@Override
-	public Page<PersonUserDTO> getAllPersonUsers(final String firstNameFilter, final String lastNameFilter,
+	public Page<PersonUserDTO> getAllPersonUsers(final String firstName, final String lastName,
 			final Integer minVehicleCount, final Integer maxVehicleCount, final Integer page, final Integer pageSize) {
-		final PersonUserSearchOptions searchOptions = PersonUserSearchOptions.builder().firstNameFilter(firstNameFilter)
-				.lastNameFilter(lastNameFilter).minVehicleCount(minVehicleCount).maxVehicleCount(maxVehicleCount)
+		final PersonUserSearchOptions searchOptions = PersonUserSearchOptions.builder().firstName(firstName)
+				.lastName(lastName).minVehicleCount(minVehicleCount).maxVehicleCount(maxVehicleCount)
 				.page(page).size(pageSize).build();
 
 		return personUserService.getAllPersonUsers(searchOptions);

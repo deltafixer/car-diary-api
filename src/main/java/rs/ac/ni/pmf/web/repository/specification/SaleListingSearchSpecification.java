@@ -39,19 +39,19 @@ public class SaleListingSearchSpecification implements Specification<SaleListing
 		final Date toDateFilter = searchOptions.getToDate();
 
 		if (minPriceFilter != null) {
-			query.having(criteriaBuilder.ge(price, minPriceFilter));
+			predicates.add(criteriaBuilder.ge(price, minPriceFilter));
 		}
 
 		if (maxPriceFilter != null) {
-			query.having(criteriaBuilder.le(price, maxPriceFilter));
+			predicates.add(criteriaBuilder.le(price, maxPriceFilter));
 		}
 
 		if (fromDateFilter != null) {
-			query.having(criteriaBuilder.lessThanOrEqualTo(dateAdded, fromDateFilter));
+			predicates.add(criteriaBuilder.lessThanOrEqualTo(dateAdded, fromDateFilter));
 		}
 
 		if (toDateFilter != null) {
-			query.having(criteriaBuilder.greaterThanOrEqualTo(dateAdded, toDateFilter));
+			predicates.add(criteriaBuilder.greaterThanOrEqualTo(dateAdded, toDateFilter));
 		}
 
 		query.orderBy(criteriaBuilder.asc(price), criteriaBuilder.desc(dateAdded));
