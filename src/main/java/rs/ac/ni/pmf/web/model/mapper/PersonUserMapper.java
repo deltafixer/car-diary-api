@@ -15,13 +15,15 @@ public class PersonUserMapper {
 
 	public PersonUserDTO toDto(final PersonUserEntity personUserEntity) {
 		return PersonUserDTO.builder().username(personUserEntity.getUsername()).userType(personUserEntity.getUserType())
-				.firstName(personUserEntity.getFirstName()).lastName(personUserEntity.getLastName()).build();
+				.role(personUserEntity.getRole()).firstName(personUserEntity.getFirstName())
+				.lastName(personUserEntity.getLastName()).build();
 	}
 
 	public PersonUserEntity toEntity(final PersonUserDTO personUserDto) {
 		return PersonUserEntity.builder().username(personUserDto.getUsername())
 				.password(passwordEncoder.encode(personUserDto.getPassword())).userType(personUserDto.getUserType())
-				.firstName(personUserDto.getFirstName()).lastName(personUserDto.getLastName()).build();
+				.role(personUserDto.getRole()).firstName(personUserDto.getFirstName())
+				.lastName(personUserDto.getLastName()).build();
 	}
 
 }

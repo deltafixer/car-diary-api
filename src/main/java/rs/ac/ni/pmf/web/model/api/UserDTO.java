@@ -1,6 +1,5 @@
 package rs.ac.ni.pmf.web.model.api;
 
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
@@ -9,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.NonFinal;
 import lombok.experimental.SuperBuilder;
+import rs.ac.ni.pmf.web.model.entity.UserEnums.Role;
 import rs.ac.ni.pmf.web.model.entity.UserEnums.UserType;
 
 @Data
@@ -26,5 +26,7 @@ public abstract class UserDTO {
 	private String password;
 	@ApiModelProperty(value = "User type.", required = true, example = "PERSON")
 	private UserType userType;
+	@ApiModelProperty(value = "User role.", required = true, example = "ADMIN")
+	private Role role;
 
 }

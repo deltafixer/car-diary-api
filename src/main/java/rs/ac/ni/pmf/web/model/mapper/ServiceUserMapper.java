@@ -10,12 +10,14 @@ public class ServiceUserMapper {
 
 	public ServiceUserDTO toDto(final ServiceUserEntity serviceUserEntity) {
 		return ServiceUserDTO.builder().username(serviceUserEntity.getUsername()).name(serviceUserEntity.getName())
-				.userType(serviceUserEntity.getUserType()).serviceType(serviceUserEntity.getServiceType()).build();
+				.userType(serviceUserEntity.getUserType()).role(serviceUserEntity.getRole())
+				.serviceType(serviceUserEntity.getServiceType()).build();
 	}
 
 	public ServiceUserEntity toEntity(final ServiceUserDTO serviceUserDto) {
 		return ServiceUserEntity.builder().username(serviceUserDto.getUsername()).name(serviceUserDto.getName())
-				.userType(serviceUserDto.getUserType()).serviceType(serviceUserDto.getServiceType()).build();
+				.userType(serviceUserDto.getUserType()).role(serviceUserDto.getRole())
+				.serviceType(serviceUserDto.getServiceType()).build();
 	}
 
 }

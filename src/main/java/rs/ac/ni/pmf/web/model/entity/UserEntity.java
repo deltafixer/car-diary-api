@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import rs.ac.ni.pmf.web.model.entity.UserEnums.Role;
 import rs.ac.ni.pmf.web.model.entity.UserEnums.UserType;
 
 @Data
@@ -36,5 +37,8 @@ public abstract class UserEntity {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "user_type", length = 20, columnDefinition = "varchar(20) default 'PERSON'")
 	private UserType userType;
+	
+	@Column(nullable = false, columnDefinition = "varchar(6) default 'USER'")
+	private Role role;
 
 }
